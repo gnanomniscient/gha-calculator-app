@@ -27,3 +27,9 @@ jobs:
 
       - name: Show Target Directory
         run: ls -la target
+
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: calculator-jar
+          path: target/*.jar
