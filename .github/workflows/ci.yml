@@ -8,11 +8,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
 
-      - run: mvn test
+      - name: Check Versions
+        run: |
+          java -version
+          mvn -version
+
+      - name: Run Tests
+        run: mvn test
